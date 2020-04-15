@@ -4,7 +4,7 @@ export default (props) => {
     const render = (element, prevCode) => {
         return element.map((el) => {
             return (
-                <ul>
+                <>
                     <li
                         onClick={(e) => {
                             !prevCode &&
@@ -36,7 +36,7 @@ export default (props) => {
                                 {render(el.children, el.name)}
                             </ul>
                         )}
-                </ul>
+                </>
             );
         });
     };

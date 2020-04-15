@@ -1,11 +1,13 @@
 {
     "name": "hssoft-assignment",
     "version": "0.1.0",
+    "homepage": "https://flushdev.github.io/list-assignment/",
     "private": true,
     "dependencies": {
         "apollo-cache-inmemory": "^1.6.5",
         "apollo-client": "^2.6.8",
         "apollo-link-http": "^1.5.17",
+        "gh-pages": "^2.2.0",
         "graphql": "^15.0.0",
         "graphql-tag": "^2.10.3",
         "prop-types": "^15.7.2",
@@ -19,7 +21,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": "react-app"
