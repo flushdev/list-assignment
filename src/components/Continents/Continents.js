@@ -4,6 +4,8 @@ import ListData from "../ListData/ListData";
 
 import { ListContext } from "../ContextWrapper/WithContext";
 
+import { dataTransformer } from "./dataTranformer";
+
 const Continents = (props) => {
     const { data, loading, error, setDisplay, display } = useContext(
         ListContext,
@@ -24,28 +26,7 @@ const Continents = (props) => {
 
     useEffect(() => {
         if (data) {
-            const key = Object.keys(data).toString();
-            const next = (item) =>
-                Object.keys(item).find((arr) => item[arr] instanceof Array);
-            const findDeepChilds = (arr) => {
-                return arr.map((element) => {
-                    const array = next(element);
-                    return {
-                        name: element.name,
-                        code: element.code,
-                        children: array ? findDeepChilds(element[array]) : null,
-                    };
-                });
-            };
-            const array = data[key].map((item) => {
-                const findedArray = next(item);
-                const child = findDeepChilds(item[findedArray]);
-                return {
-                    name: item.name,
-                    code: item.code,
-                    children: child,
-                };
-            });
+            const array = dataTransformer(data);
             setDataToRender(array);
         }
     }, [data, display, setDisplay]);
