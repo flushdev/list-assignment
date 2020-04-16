@@ -29,7 +29,7 @@ const Continents = (props) => {
             const array = dataTransformer(data);
             setDataToRender(array);
         }
-    }, [data, display, setDisplay]);
+    }, [data]);
     return (
         <>
             {loading && <h1>Loading...</h1>}
