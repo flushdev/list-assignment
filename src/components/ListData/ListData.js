@@ -2,7 +2,6 @@ import React from "react";
 
 export default (props) => {
     const render = (element, prevCode) => {
-        console.log(props.data);
         return element.map((el) => {
             return (
                 <>
