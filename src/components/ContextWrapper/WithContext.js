@@ -24,10 +24,8 @@ export const ListContext = React.createContext(null);
 
 const WithContext = (props) => {
     const { data, loading, error } = useQuery(GET_CONTINENTS_QUERY);
-    const [display, setDisplay] = useState({
-        first: null,
-        second: null,
-    });
+    const [display, setDisplay] = useState([]);
+
     return (
         <ListContext.Provider
             value={{ data, loading, error, display, setDisplay }}>

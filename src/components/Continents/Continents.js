@@ -11,15 +11,16 @@ const Continents = (props) => {
     const [dataToRender, setDataToRender] = useState(null);
 
     const changeDisplay = (prev, next) => {
-        setDisplay({
-            first:
-                display.first === prev && !next
-                    ? display.first === prev && display.second === next
-                        ? prev
-                        : null
-                    : prev,
-            second: display.second === next ? null : next,
-        });
+        const p = display.indexOf(prev);
+        const n = display.indexOf(next);
+        console.log(p);
+        const arr = [].splice(0, display.length, ...[display, prev]);
+        display.length && arr.concat(display);
+        arr.push(prev);
+        next && arr.push(next);
+        p >= 0 && !next && arr.splice(p, display.length);
+        n >= 0 && next && arr.splice(n, display.length);
+        setDisplay(arr);
     };
 
     useEffect(() => {
