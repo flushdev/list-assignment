@@ -13,7 +13,6 @@ const Continents = (props) => {
     const changeDisplay = (prev, next) => {
         const p = display.indexOf(prev);
         const n = display.indexOf(next);
-        console.log(p);
         const arr = [].splice(0, display.length, ...[display, prev]);
         display.length && arr.concat(display);
         arr.push(prev);

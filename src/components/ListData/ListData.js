@@ -1,7 +1,6 @@
 import React from "react";
 
 export default (props) => {
-    console.log(props.data);
     const render = (element, prevCode) => {
         return element.map((el) => {
             return (
@@ -12,7 +11,6 @@ export default (props) => {
                                 el.children !== null &&
                                 props.changeDisplay(prevCode, el.name);
                             !prevCode && props.changeDisplay(el.name);
-                            console.log(Array.isArray(el.children));
                         }}
                         key={el.name + "_li"}
                         name={el.name}
